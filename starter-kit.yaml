@@ -1,0 +1,4 @@
+export_paths:
+  - resources/fieldsets
+  - resources/views/partials
+  - tailwind.config.js

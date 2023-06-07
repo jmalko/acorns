@@ -1,0 +1,283 @@
+title: Cols
+fields:
+  -
+    handle: row_settings
+    field:
+      mode: toggle
+      type: revealer
+      display: 'View all row settings'
+      icon: revealer
+      instructions: 'Toggle to reveal all row settings.  Settings will always save whether visible or not.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: background_image
+    field:
+      max_files: 1
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Background Image'
+      icon: assets
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      validate:
+        - image
+      if:
+        row_settings: 'equals true'
+  -
+    handle: background_opacity
+    field:
+      min: 0
+      max: 100
+      step: 5
+      default: 100
+      type: range
+      display: 'Background Opacity'
+      icon: range
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      if:
+        row_settings: 'equals true'
+  -
+    handle: background_color
+    field:
+      allow_any: true
+      type: color
+      display: 'Background Color'
+      icon: color
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      if:
+        row_settings: 'equals true'
+  -
+    handle: prose_invert
+    field:
+      default: false
+      type: toggle
+      display: 'Invert Text Colors'
+      icon: toggle
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      if:
+        row_settings: 'equals true'
+  -
+    handle: row_title
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - h1
+        - h4
+        - h5
+        - h6
+        - underline
+        - strikethrough
+        - small
+        - superscript
+        - subscript
+        - code
+        - codeblock
+        - horizontalrule
+        - alignleft
+        - aligncenter
+        - alignright
+        - alignjustify
+      smart_typography: false
+      save_html: false
+      inline: false
+      toolbar_mode: fixed
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      remove_empty_nodes: false
+      antlers: true
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      always_show_set_button: false
+      collapse: false
+      previews: true
+      type: bard
+      display: 'Row Title'
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      width: 50
+      if:
+        row_settings: 'equals true'
+  -
+    handle: anchor
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Anchor
+      icon: text
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      if:
+        row_settings: 'equals true'
+  -
+    handle: padding
+    field:
+      options:
+        6: Small
+        12: Default
+        24: Large
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      type: select
+      display: Padding
+      icon: select
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      default: '12'
+      if:
+        row_settings: 'equals true'
+  -
+    handle: cols
+    field:
+      collapse: false
+      previews: true
+      fullscreen: true
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            col:
+              display: Col
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: column_settings
+                  field:
+                    mode: toggle
+                    type: revealer
+                    display: 'View all column settings'
+                    icon: revealer
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: background_image
+                  field:
+                    max_files: 1
+                    mode: list
+                    container: assets
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    show_set_alt: true
+                    type: assets
+                    display: 'Background Image'
+                    icon: assets
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    validate:
+                      - image
+                    if:
+                      column_settings: 'equals true'
+                -
+                  handle: background_opacity
+                  field:
+                    min: 0
+                    max: 100
+                    step: 5
+                    default: 100
+                    type: range
+                    display: 'Background Opacity'
+                    icon: range
+                    instructions: 'For background image'
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    if:
+                      column_settings: 'equals true'
+                -
+                  handle: background_color
+                  field:
+                    allow_any: true
+                    type: color
+                    display: 'Background Color'
+                    icon: color
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    if:
+                      column_settings: 'equals true'
+                -
+                  handle: prose_invert
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Invert Text Colors'
+                    icon: toggle
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    width: 25
+                    if:
+                      column_settings: 'equals true'
+                -
+                  import: full_bard
+      type: replicator
+      display: Cols
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

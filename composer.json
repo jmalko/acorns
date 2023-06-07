@@ -1,0 +1,9 @@
+{
+    "name": "my-vendor-name/acorns",
+    "extra": {
+        "statamic": {
+            "name": "Acorns",
+            "description": "Acorns starter kit"
+        }
+    }
+}

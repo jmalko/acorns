@@ -1,0 +1,38 @@
+{{ rows }}
+    {{ if anchor }}
+        <div id="{{ anchor }}" name="{{ anchor }}"></div>
+    {{ /if }}
+    <div class="px-8 py-{{ padding ?? '12' }} w-full relative"
+        style="
+            background-color: {{ background_color ?? 'transparent' }};
+        ">
+        {{ if background_image }}
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+            style="
+                background-image: url({{ background_image }});
+                opacity: {{ background_opacity / 100 }};
+                "></div>
+        {{ /if }}
+        <div class="max-w-5xl mx-auto relative z-1">
+            {{ if row_title }}
+            <div class="prose pb-8 mx-auto text-center {{ if prose_invert }}prose-invert {{ /if }}">
+                    {{ row_title }}
+                </div>
+            {{ /if }}
+            <div class="w-full grid sm:grid-cols-{{ cols | count }}">
+                {{ cols }}
+                <div class="px-4 {{ if cols | count == 1 }}mx-auto {{/if}} prose {{ if prose_invert }}prose-invert {{/if}} relative"
+                     style="background-color: {{ background_color ?? 'transparent' }};">
+                    {{ if background_image }}
+                    <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+                         style="background-image: url({{ background_image }});
+                                opacity: {{ background_opacity / 100 }};">
+                    </div>
+                    {{ /if }}
+                    <div class="relative z-1">{{ content }}</div>
+                    </div>
+                {{ /cols }}
+            </div>
+        </div>
+    </div>
+{{ /rows }}
