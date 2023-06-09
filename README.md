@@ -8,19 +8,21 @@ Includes what is needed to have a row fieldset that supports between 1 and 12 co
 
 These are sane defaults for building pages with an arbitrary row/column structure.
 
-### Roadmap
-[x] Add row/column editor with background control
-[ ] Add jQuery-based scrollTo anchor feature
-[ ] Add jQuery-based slider
-[ ] Add row proportion options (1/3 - 2/3, etc)
-[ ] Add links -> buttons toggle
-[ ] Add automatic default Assets container for those installing SK fresh
-[ ] Add automatic tailwind configuration appending
+### Near-term Roadmap
+- [x] Add row/column editor with background control
+- [ ] Add jQuery-based scrollTo anchor feature
+- [ ] Add jQuery-based slider
+- [ ] Add row proportion options (1/3 - 2/3, etc)
+- [ ] Add links -> buttons toggle
+- [ ] Add automatic default Assets container for those installing SK fresh
+- [ ] Add automatic tailwind configuration appending
 
 ### Screenshots
-
+##### Fieldset
 [![Acorns Fieldset](https://shoutmedia.net/assets/external/acorns-fieldset-1.jpg)](https://shoutmedia.net/assets/external/acorns-fieldset-1.jpg)
+##### Live Preview 1
 [![Acorns Live Preview 1](https://shoutmedia.net/assets/external/acorns-lp-1.jpg)](https://shoutmedia.net/assets/external/acorns-lp-1.jpg)
+##### Live Preview 2
 [![Acorns Live Preview 2](https://shoutmedia.net/assets/external/acorns-lp-2.jpg)](https://shoutmedia.net/assets/external/acorns-lp-2.jpg)
 
 ### Installation
