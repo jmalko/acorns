@@ -1,14 +1,12 @@
 title: Cols
 fields:
   -
-    handle: anchor
+    handle: row_background_settings
     field:
-      input_type: text
-      antlers: false
-      type: text
-      display: Anchor
-      icon: text
-      width: 25
+      type: section
+      display: 'Row Settings'
+      icon: section
+      instructions: "Background and title settings for the entire row.  Each column has it's own background settings available too."
       listable: hidden
       instructions_position: above
       visibility: visible
@@ -17,28 +15,21 @@ fields:
     handle: row_title
     field:
       buttons:
+        - h1
         - h2
         - h3
+        - h4
         - bold
         - italic
+        - underline
+        - strikethrough
+        - small
         - unorderedlist
         - orderedlist
         - removeformat
         - quote
         - anchor
         - image
-        - table
-        - h1
-        - h4
-        - h5
-        - h6
-        - underline
-        - strikethrough
-        - small
-        - superscript
-        - subscript
-        - code
-        - codeblock
         - horizontalrule
         - alignleft
         - aligncenter
@@ -62,13 +53,88 @@ fields:
       collapse: false
       previews: true
       type: bard
-      display: 'Row Title'
+      display: Title
       icon: bard
       listable: hidden
       instructions_position: above
       visibility: visible
       hide_display: false
       width: 50
+      instructions: 'Content above the columns - useful for section titles'
+  -
+    handle: prose_invert
+    field:
+      default: false
+      type: toggle
+      display: 'Invert Title Colors'
+      icon: toggle
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      instructions: 'Invert text colors for title'
+  -
+    handle: anchor
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Anchor
+      icon: text
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      instructions: 'Direct section linking'
+  -
+    handle: background_image
+    field:
+      max_files: 1
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Background Image'
+      icon: assets
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      validate:
+        - image
+  -
+    handle: background_opacity
+    field:
+      min: 0
+      max: 100
+      step: 5
+      default: 100
+      type: range
+      display: 'Background Opacity'
+      icon: range
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: background_color
+    field:
+      allow_any: true
+      type: color
+      display: 'Background Color'
+      icon: color
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
   -
     handle: padding
     field:
@@ -83,7 +149,7 @@ fields:
       searchable: true
       cast_booleans: false
       type: select
-      display: Padding
+      display: 'Vertical Padding'
       icon: select
       width: 25
       listable: hidden
@@ -92,9 +158,20 @@ fields:
       hide_display: false
       default: '12'
   -
+    handle: columns_editor
+    field:
+      type: section
+      display: Columns
+      icon: section
+      instructions: 'Add up to 12 columns per row. A 1 column row will center the column.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
     handle: cols
     field:
-      collapse: false
+      collapse: true
       previews: true
       fullscreen: true
       sets:
@@ -104,7 +181,7 @@ fields:
           icon: null
           sets:
             col:
-              display: Col
+              display: Column
               instructions: null
               icon: null
               fields:
@@ -171,68 +248,10 @@ fields:
                     hide_display: false
                     width: 25
       type: replicator
-      display: Cols
+      display: Columns
       icon: replicator
       listable: hidden
       instructions_position: above
       visibility: visible
       hide_display: false
-  -
-    handle: background_image
-    field:
-      max_files: 1
-      mode: list
-      container: assets
-      restrict: false
-      allow_uploads: true
-      show_filename: true
-      show_set_alt: true
-      type: assets
-      display: 'Background Image'
-      icon: assets
-      width: 25
-      listable: hidden
-      instructions_position: above
-      visibility: visible
-      hide_display: false
-      validate:
-        - image
-  -
-    handle: background_opacity
-    field:
-      min: 0
-      max: 100
-      step: 5
-      default: 100
-      type: range
-      display: 'Background Opacity'
-      icon: range
-      width: 25
-      listable: hidden
-      instructions_position: above
-      visibility: visible
-      hide_display: false
-  -
-    handle: background_color
-    field:
-      allow_any: true
-      type: color
-      display: 'Background Color'
-      icon: color
-      width: 25
-      listable: hidden
-      instructions_position: above
-      visibility: visible
-      hide_display: false
-  -
-    handle: prose_invert
-    field:
-      default: false
-      type: toggle
-      display: 'Invert Text Colors'
-      icon: toggle
-      width: 25
-      listable: hidden
-      instructions_position: above
-      visibility: visible
-      hide_display: false
+      max_sets: 12

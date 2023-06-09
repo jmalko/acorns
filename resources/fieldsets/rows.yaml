@@ -26,3 +26,4 @@ fields:
       instructions_position: above
       visibility: visible
       hide_display: false
+      instructions: 'Set row settings, then add 1-12 columns to your row, fill with content.'
