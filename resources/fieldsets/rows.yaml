@@ -1,0 +1,28 @@
+title: Rows
+fields:
+  -
+    handle: rows
+    field:
+      collapse: false
+      previews: true
+      fullscreen: true
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          instructions: null
+          icon: null
+          sets:
+            row:
+              display: Row
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: cols
+      type: replicator
+      display: Rows
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
