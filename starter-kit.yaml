@@ -10,4 +10,5 @@ export_paths:
   - resources/js/jquery-3.7.0.min.js
   - resources/js/slick.min.js
   - resources/views/acorns
+  - content/globals
   - vite.config.js
