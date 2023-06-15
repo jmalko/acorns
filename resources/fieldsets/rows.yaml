@@ -19,6 +19,20 @@ fields:
               fields:
                 -
                   import: cols
+            slider:
+              display: Slider
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: slides
+            image_slider_content:
+              display: 'Image Slider + Content'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: image_slider_content
       type: replicator
       display: Rows
       icon: replicator

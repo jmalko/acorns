@@ -59,8 +59,30 @@ fields:
       instructions_position: above
       visibility: visible
       hide_display: false
-      width: 50
       instructions: 'Content above the columns - useful for section titles'
+  -
+    handle: text_style_set
+    field:
+      options:
+        default: Default
+        alt1: 'Styles 1'
+        alt2: 'Styles 2'
+      taggable: false
+      push_tags: false
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      default: default
+      type: select
+      display: 'Text Style Set'
+      icon: select
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
   -
     handle: prose_invert
     field:
@@ -68,26 +90,93 @@ fields:
       type: toggle
       display: 'Invert Title Colors'
       icon: toggle
-      width: 25
+      width: 33
       listable: hidden
       instructions_position: above
       visibility: visible
       hide_display: false
       instructions: 'Invert text colors for title'
   -
-    handle: anchor
+    handle: links_to_buttons_row_title
+    field:
+      default: false
+      type: toggle
+      display: 'Links to Buttons (Row Title)'
+      icon: toggle
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: column_layout
+    field:
+      options:
+        equal: 'Equal Width'
+        onethird_twothird: '1/3 + 2/3'
+        onequarter_threequarter: '1/4 + 3/4'
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      type: select
+      display: 'Column Layout'
+      icon: select
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: padding
+    field:
+      options:
+        6: Small
+        12: Default
+        24: Large
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      type: select
+      display: 'Vertical Padding'
+      icon: select
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      default: '12'
+  -
+    handle: additional_classes
     field:
       input_type: text
       antlers: false
       type: text
-      display: Anchor
+      display: 'Additional CSS Classes'
       icon: text
       width: 25
       listable: hidden
       instructions_position: above
       visibility: visible
       hide_display: false
-      instructions: 'Direct section linking'
+  -
+    handle: anchor
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Anchor & ID'
+      icon: text
+      width: 25
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
   -
     handle: background_image
     field:
@@ -101,7 +190,7 @@ fields:
       type: assets
       display: 'Background Image'
       icon: assets
-      width: 25
+      width: 50
       listable: hidden
       instructions_position: above
       visibility: visible
@@ -136,28 +225,6 @@ fields:
       visibility: visible
       hide_display: false
   -
-    handle: padding
-    field:
-      options:
-        6: Small
-        12: Default
-        24: Large
-      taggable: false
-      push_tags: false
-      multiple: false
-      clearable: false
-      searchable: true
-      cast_booleans: false
-      type: select
-      display: 'Vertical Padding'
-      icon: select
-      width: 25
-      listable: hidden
-      instructions_position: above
-      visibility: visible
-      hide_display: false
-      default: '12'
-  -
     handle: columns_editor
     field:
       type: section
@@ -188,6 +255,53 @@ fields:
                 -
                   import: full_bard
                 -
+                  handle: text_style_set
+                  field:
+                    options:
+                      default: Default
+                      alt1: 'Style 1'
+                      alt2: 'Style 2'
+                    taggable: false
+                    push_tags: false
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    cast_booleans: false
+                    default: default
+                    type: select
+                    display: 'Text Style Set'
+                    icon: select
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: prose_invert
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Invert Text Colors'
+                    icon: toggle
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    width: 33
+                -
+                  handle: links_to_buttons
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Links to Buttons'
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
                   handle: background_image
                   field:
                     max_files: 1
@@ -200,7 +314,7 @@ fields:
                     type: assets
                     display: 'Background Image'
                     icon: assets
-                    width: 25
+                    width: 50
                     listable: hidden
                     instructions_position: above
                     visibility: visible
@@ -235,18 +349,6 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
-                -
-                  handle: prose_invert
-                  field:
-                    default: false
-                    type: toggle
-                    display: 'Invert Text Colors'
-                    icon: toggle
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    hide_display: false
-                    width: 25
       type: replicator
       display: Columns
       icon: replicator

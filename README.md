@@ -10,11 +10,11 @@ These are sane defaults for building pages with an arbitrary row/column structur
 
 ### Near-term Roadmap
 - [x] Add row/column editor with background control
-- [ ] Add jQuery-based scrollTo anchor feature
-- [ ] Add jQuery-based slider
+- [x] Add jQuery-based scrollTo anchor feature
+- [x] Add jQuery-based slider
+- [x] Add links -> buttons toggle
+- [x] Add automatic default Assets container for those installing SK fresh
 - [ ] Add row proportion options (1/3 - 2/3, etc)
-- [ ] Add links -> buttons toggle
-- [ ] Add automatic default Assets container for those installing SK fresh
 - [ ] Add automatic tailwind configuration appending
 
 ### Screenshots
@@ -29,8 +29,9 @@ These are sane defaults for building pages with an arbitrary row/column structur
 
 - You must have an Assets container defined as "assets"
 - Add "Rows" fieldset to your Blueprints
-- In your front end template, replace your typical `{{ content }}` tag with `{{ partial src="partials/rows" }}`
-- Adjust your tailwind.config.js to include critical grid and padding styles
+- In your front end template, replace your typical `{{ content }}` tag with `{{ partial src="acorns/rows" }}`
+- In order to auto-scroll to a page section, set a row anchor, then make a link starting with a # and the name of the row anchor
+- Sliders are in - configure them in `/resources/js/acorns.js`
 
 ```js
 // tailwind.config.js
