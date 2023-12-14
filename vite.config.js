@@ -7,6 +7,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/htmx.min.js',
+                'resources/js/jquery-3.7.0.min.js',
 
                 // Control Panel assets.
                 // https://statamic.dev/extending/control-panel#adding-css-and-js-assets

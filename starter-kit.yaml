@@ -1,5 +1,11 @@
 export_paths:
+  - content/assets
   - content/navigation
+  - content/collections/pages/2023-11-02.home.md
+  - content/collections/pages.yaml
+  - content/globals/acorns.yaml
+  - config/filesystems.php
+  - config/statamic/assets.php
   - resources/blueprints/collections/pages
   - resources/blueprints/globals
   - resources/js/htmx.min.js
