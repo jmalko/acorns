@@ -316,26 +316,6 @@ fields:
                     visibility: visible
                     replicator_preview: true
                     hide_display: false
-            courses:
-              display: Courses
-              instructions: null
-              icon: null
-              fields:
-                -
-                  handle: courses
-                  field:
-                    mode: default
-                    create: true
-                    collections:
-                      - courses
-                    type: entries
-                    display: Courses
-                    icon: entries
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    replicator_preview: true
-                    hide_display: false
       type: replicator
       display: Columns
       icon: replicator
