@@ -1,7 +1,6 @@
 export_paths:
   - content/assets
   - content/navigation
-  - config/filesystems.php
   - config/statamic/assets.php
   - resources/blueprints/collections/pages
   - resources/blueprints/globals
