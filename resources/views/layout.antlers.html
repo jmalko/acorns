@@ -14,7 +14,8 @@
         </title>
         <link rel="icon" type="image/x-icon" href="{{ acorns:favicon }}">
         {{ partial src="partials/css-scope-inline" }} <!-- needs to load inline to avoid FOUC due to vite, etc -->
-        {{ vite src="resources/js/htmx.min.js|resources/js/jquery-3.7.0.min.js" }}
+        <script src="/js/htmx.min.js"></script>
+        <script src="/js/jquery-3.7.0.min.js"></script>
         <script>
             {{ acorns:header_js }}
         </script>

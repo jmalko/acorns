@@ -6,6 +6,8 @@ export_paths:
   - content/globals/acorns.yaml
   - config/filesystems.php
   - config/statamic/assets.php
+  - public/js/htmx.min.js
+  - public/js/jquery-3.7.0.min.js
   - resources/blueprints/collections/pages
   - resources/blueprints/globals
   - resources/js/htmx.min.js
@@ -22,4 +24,3 @@ export_paths:
   - resources/views/partials/nav.antlers.html
   - resources/views/partials/nav-auth.antlers.html
   - resources/views/partials/mobile-nav.antlers.html
-  - vite.config.js
