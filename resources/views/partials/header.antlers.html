@@ -1,0 +1,121 @@
+<section id="masthead">
+
+    <style>
+        me {
+            width: 100%;
+            background: var(--grad-primary);
+            color: white;
+        }
+        me a { color: white; text-decoration: none; }
+        me a:hover { text-decoration: underline; }
+    </style>
+
+    <header>
+
+        <style>
+            me {
+                max-width: 102.4em;
+                padding: 1em 2em;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            me img {
+                height: auto;
+                width: 100px;
+            }
+
+            me h3 {
+                margin: 0;
+                font-size: 3em;
+                font-weight: 500;
+                font-style: italic;
+                text-transform: uppercase;
+                letter-spacing: -0.05em;
+            }
+            me a:hover {
+                text-decoration: none;
+            }
+
+            me p {
+                font-size: 1em;
+                margin: 0;
+            }
+            @media sm {
+                me {
+                    padding: 2em;
+                    display: grid;
+                    grid-template-columns: 100px auto 150px;
+                }
+            }
+
+        </style>
+
+        <a href="/">
+            {{ if acorns:logo }}
+            <img src="{{ acorns:logo }}" alt="{{ acorns:site_name }}" />
+            {{ else }}
+                <h3>{{ acorns:site_name }}</h3>
+                <p>{{ acorns:tagline }}</p>
+            {{ /if }}
+        </a>
+
+        {{ partial src="partials.nav" }}
+
+        <nav id="header-social">
+            <style>
+                me {
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 2em;
+                }
+                me img {
+                    height: 4em; width: auto;
+                }
+            </style>
+            {{ if acorns:facebook_logo }}
+                <a href="{{ acorns:facebook_url }}">
+                    <img src="{{ acorns:facebook_logo }}" alt="Facebook" />
+                </a>
+            {{ /if }}
+            {{ if acorns:youtube_logo }}
+                <a href="{{ acorns:youtube_url }}">
+                    <img src="{{ acorns:youtube_logo }}" alt="YouTube" />
+                </a>
+            {{ /if }}
+
+        </nav>
+
+
+        <button id="mobile-main-nav-button" type="button">
+            <style>
+                me {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0;
+                }
+                me svg {
+                    width: 2em;
+                    height: 2em;
+                    margin-right: 0.5em;
+                }
+                @media sm {
+                    me {
+                        display: none;
+                    }
+                }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+              Menu
+        </button>
+
+    </header>
+
+    {{ partial src="partials.mobile-nav" }}
+
+</section>

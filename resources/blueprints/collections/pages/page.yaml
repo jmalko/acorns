@@ -9,7 +9,6 @@ tabs:
             handle: title
             field:
               type: text
-              required: true
               validate:
                 - required
           -
@@ -33,3 +32,40 @@ tabs:
               max_items: 1
               listable: false
               localizable: true
+          -
+            handle: date
+            field:
+              type: date
+              default: now
+              validate:
+                - required
+          -
+            handle: protect
+            field:
+              options:
+                logged_in: 'Logged In'
+              taggable: false
+              push_tags: false
+              multiple: false
+              clearable: true
+              searchable: true
+              cast_booleans: false
+              type: select
+              display: Protect
+              icon: select
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+  SEO:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO

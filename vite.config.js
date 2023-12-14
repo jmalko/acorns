@@ -6,14 +6,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/site.css',
-                'resources/css/acorns.css',
-                'resources/css/slick.css',
-                'resources/css/slick-theme.css',
-                'resources/js/jquery-3.7.0.min.js',
-                'resources/js/slick.min.js',
-                'resources/js/site.js',
-                'resources/js/acorns.js',
+                'resources/js/htmx.min.js',
 
                 // Control Panel assets.
                 // https://statamic.dev/extending/control-panel#adding-css-and-js-assets

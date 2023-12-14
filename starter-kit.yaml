@@ -1,15 +1,22 @@
 export_paths:
+  - content/assets
+  - content/navigation
   - config/filesystems.php
   - config/statamic/assets.php
-  - resources/blueprints
-  - resources/fieldsets
-  - resources/css/acorns.css
-  - resources/css/slick.css
-  - resources/css/slick-theme.css
-  - resources/js/acorns.js
+  - resources/blueprints/collections/pages
+  - resources/blueprints/globals
+  - resources/js/htmx.min.js
   - resources/js/jquery-3.7.0.min.js
-  - resources/js/slick.min.js
+  - resources/fieldsets/cols.yaml
+  - resources/fieldsets/full_bard.yaml
+  - resources/fieldsets/rows.yaml
   - resources/views/acorns
-  - content/globals
+  - resources/views/default.antlers.html
+  - resources/views/layout.antlers.html
+  - resources/views/partials/css-scope-inline.antlers.html
+  - resources/views/partials/header.antlers.html
+  - resources/views/partials/footer.antlers.html
+  - resources/views/partials/nav.antlers.html
+  - resources/views/partials/nav-auth.antlers.html
+  - resources/views/partials/mobile-nav.antlers.html
   - vite.config.js
-  - tailwind.config.js

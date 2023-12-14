@@ -1,52 +1,382 @@
-<div class="px-8 py-{{ padding ?? '12' }} w-full relative"
-    style="
+<style>
+    me {
+        padding: {{ padding ?? '1em' }} 1em;
+        position: relative;
         background-color: {{ background_color ?? 'transparent' }};
-    ">
-    {{ if background_image }}
-    <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-        style="
-            background-image: url({{ background_image }});
-            opacity: {{ background_opacity / 100 }};
-            "></div>
-    {{ /if }}
-    <div class="max-w-5xl mx-auto relative z-1">
-        {{ if row_title }}
-        <div class="prose pb-8 mx-auto text-center max-w-none
-                     {{ if prose_invert }}prose-invert {{ /if }}
-                     {{ if text_style_set != "default" }}text-{{ text_style_set }} {{ /if }}
-                     {{ if links_to_buttons_row_title }}links-to-buttons {{ /if }}
-                     {{ text_style_set }}
-                     {{ additional_classes }}
-            ">
-                {{ row_title }}
-            </div>
-        {{ /if }}
-        <div class="w-full grid
-            {{ if column_layout != "equal" }}
-                sm:grid-cols-{{ column_layout }}
-            {{ else }}
-                sm:grid-cols-{{ columns | count }}
-            {{ /if }}
-            "
-            >
-            {{ cols }}
-            <div class="px-4 prose relative max-w-none
-                     {{ if cols | count == 1 }}mx-auto {{/if}}
-                     {{ if prose_invert }}prose-invert {{/if}}
-                     {{ if text_style_set != "default" }}text-{{ text_style_set }} {{ /if }}
-                     {{ if links_to_buttons }}links-to-buttons {{ /if }}
-                     {{ text_style_set }}
-                 "
-                 style="background-color: {{ background_color ?? 'transparent' }};">
-                {{ if background_image }}
-                <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-                     style="background-image: url({{ background_image }});
-                            opacity: {{ background_opacity / 100 }};">
-                </div>
-                {{ /if }}
-                <div class="relative z-1">{{ content }}</div>
-                </div>
-            {{ /cols }}
-        </div>
+        color: {{ text_color ?? 'inherit' }};
+    }
+    {{ row_custom_css }}
+</style>
+
+{{ if background_image }}
+
+    <div>
+       <style>
+            me {
+                background-image: url({{ background_image }});
+                opacity: {{ background_opacity / 100 }};
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
     </div>
-</div>
+
+{{ /if }}
+
+<section>
+
+    <style>
+
+        me {
+
+            width: 100%;
+            max-width: 1044px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        {{ grid_custom_css }}
+
+    </style>
+
+    <div>
+
+        <style>
+            me {
+                display: grid;
+                grid-gap: 2em;
+                align-items: {{ align_row_content }};
+            }
+
+            @media sm {
+                me {
+                    grid-template-columns: repeat({{ cols | count }}, 1fr);
+                }
+
+                {{ if row_layout === 'hero' }}
+                    me {
+                        grid-template-columns: repeat({{ ( cols | count ) - 1 }}, 1fr);
+                    }
+                    me article:first-of-type {
+                        grid-column: 1 / -1;
+                    }
+                {{ elseif row_layout === 'cta' }}
+                    me {
+                        grid-template-columns: repeat({{ ( cols | count ) - 2 }}, 1fr);
+                    }
+                    me article:last-of-type,
+                    me article:first-of-type {
+                        grid-column: 1 / -1;
+                    }
+
+                {{ elseif row_layout === 'hero2col' }}
+                    me {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    me article:first-of-type {
+                        grid-column: 1 / -1;
+                    }
+
+
+                {{ elseif row_layout === '3col' }}
+
+                    me {
+                        grid-template-areas: "a b c";
+                        grid-template-columns: 1fr 1fr 1fr;
+                    }
+
+                {{ elseif row_layout === '2col' }}
+
+                    me {
+                        grid-template-areas: "a b";
+                        grid-template-columns: 1fr 1fr;
+                    }
+
+                {{ elseif row_layout === '1col' }}
+
+                    me {
+                        grid-template-areas: "a";
+                        grid-template-columns: 1fr;
+                    }
+
+                {{ elseif row_layout === 'third' }}
+
+                    me {
+                        grid-template-areas: "a b";
+                        grid-template-columns: 1fr 2fr;
+                    }
+
+                {{ elseif row_layout === 'quarter' }}
+
+                    me {
+                        grid-template-areas: "a b";
+                        grid-template-columns: 1fr 3fr;
+                    }
+
+                {{ elseif row_layout === 'third-invert' }}
+
+                    me {
+                        grid-template-areas: "a b";
+                        grid-template-columns: 2fr 1fr;
+                    }
+
+                {{ elseif row_layout === 'quarter-invert' }}
+
+                    me {
+                        grid-template-areas: "a b";
+                        grid-template-columns: 3fr 1fr;
+                    }
+
+                {{ elseif row_layout === 'midhalf' }}
+
+                    me {
+                        grid-template-areas: "a b b c";
+                        grid-template-columns: 1fr 2fr 1fr;
+                    }
+
+                {{ elseif row_layout === 'single' }}
+
+                    me {
+                        grid-template-areas: "a";
+                        grid-template-columns: 1fr;
+                    }
+
+                {{ /if }}
+
+            }
+        </style>
+
+
+        {{ cols }}
+
+            <article>
+
+                <style>
+                    me {
+                        padding: {{ col_padding ?? '0' }} 1em;
+                        position: relative;
+                        background-color: {{ background_color ?? 'transparent' }};
+                        color: {{ col_text_color ?? 'inherit' }};
+                    }
+                    {{ if links_to_buttons }}
+                        me a {
+                            display: inline-block;
+                            margin: .5em 0;
+                            padding: .5em 1em .4em;
+                            color: white;
+                            font-weight: bold;
+                            font-size: 1.6em;
+                            border: 1px solid #fff;
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            background: var(--secondary);
+                        }
+                        me a:after {
+                            content: "";
+                            border: solid #fff;
+                            border-width: 0 .25em .25em 0;
+                            display: inline-block;
+                            padding: .25em;
+                            margin-left: .25em;
+                            transform: rotate(-45deg);
+                            -webkit-transform: rotate(-45deg);
+                        }
+                        me a:hover {
+                            text-decoration: none;
+                            background: var(--primary-light);
+                        }
+                        me p {
+                            margin: 0;
+                        }
+                    {{ /if }}
+
+                    {{ custom_css }}
+
+                </style>
+
+                {{ if background_image }}
+
+                    <div>
+                       <style>
+                            me {
+                                background-image: url({{ background_image }});
+                                opacity: {{ background_opacity / 100 }};
+                                position: absolute;
+                                height: 100%;
+                                width: 100%;
+                                background-size: cover;
+                                background-position: center;
+                            }
+                        </style>
+                    </div>
+
+                {{ /if }}
+
+                <div>
+
+                    <style>
+                        me {
+                            position: relative;
+                            z-index: 1;
+                        }
+                        me details p {
+                            padding: .5em 2em 1em 2em;
+                            background: #f1f1f1;
+                            margin: 0;
+                        }
+                        me details summary{
+                            padding: 1em 2em;
+                            background: #fff;
+                            font-weight: bold;
+                            font-size: 1.6em;
+                            cursor: pointer;
+                        }
+
+                        me .courses {
+                            display: grid;
+                            gap: 2em;
+                            grid-template-columns: repeat(2, 1fr);
+                            align-items: stretch;
+                        }
+                        me .testimonials {
+                            display: grid;
+                            gap: 2em;
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                        me .courses article {
+                            border-radius: 1em;
+                            background: #fff;
+                            display: grid;
+                            gap: 2em;
+                            box-shadow: 0 0 10px rgba(0,0,0,.1);
+                            align-items: stretch;
+                        }
+                        me .testimonials article {
+                            padding: 1em;
+                            border-radius: 1em;
+                            background: #fff;
+                            display: grid;
+                            grid-template-columns: 1fr 2fr;
+                            gap: 2em;
+                            box-shadow: 0 0 10px rgba(0,0,0,.1);
+                        }
+                        me .testimonials article h5 {
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 1.6em;
+                        }
+                        me .testimonials article h4 {
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 2em;
+                        }
+                        me .testimonials article p {
+                            font-size: 1.1em;
+                            text-align: center;
+                        }
+
+                        me div[details] {
+                            padding: 2em;
+                        }
+                        me .courses article img {
+                            width: 100%;
+                            height: 150px;
+                            object-fit: cover;
+                        }
+                        me .testimonials article img {
+                            width: 100%;
+                            border-radius: 50%;
+                            max-width: 200px;
+                            margin: 0 auto;
+                        }
+                    </style>
+
+                    {{ if type === "accordian" }}
+                        {{ item }}
+                            <details {{ if first }}open{{ /if }}>
+                                <summary>{{ question }}</summary>
+                                <p>{{ answer }}</p>
+                            </details>
+                        {{ /item }}
+                    {{ /if }}
+
+                    {{ if type === "testimonials" }}
+                        <section class="testimonials">
+                        {{ testimonials }}
+                            <article>
+                                <img src="{{ picture }}" alt="">
+                                <div>
+                                    <h5>{{ name }}</h5>
+                                    <h4>{{ summary }}</h4>
+                                    <p>{{ detail }}</p>
+                                </div>
+                            </article>
+                        {{ /testimonials }}
+                        </section>
+                    {{ /if }}
+
+                    {{ if type === "courses" }}
+
+                        <section class="courses">
+                            {{ courses }}
+                                {{ user:can do="course {slug}" }}
+                                    <article>
+                                        <header>
+                                            <img src="{{ image }}" alt="{{ title }}">
+                                        </header>
+                                        <div details>
+                                            <h5>Premium Course - 50 Lessons</h5>
+                                            <h4>{{ title }}</h4>
+                                            <p>{{ description  | safe_truncate(140, '...')}}</p>
+                                            <a class="button" href="{{ url }}">Go to Course</a>
+                                        </div>
+                                    </article>
+                                {{ /user:can }}
+                            {{ /courses }}
+
+                        </section>
+
+                    {{ /if }}
+
+
+                    {{ content }}
+
+                    {{ if video_embed }}
+
+                        {{ if video_embed | is_embeddable }}
+                            <style>
+                                .video-embed {
+                                    border: 0;
+                                    aspect-ratio: 16 / 9;
+                                    width: 100%;
+                                    position: relative;
+                                    padding: 1em 0 0 1em;
+                                    background: var(--secondary);
+                                }
+                            </style>
+                            <!-- Youtube and Vimeo -->
+                            <iframe class="video-embed" src="{{ video_embed | embed_url }}" ...></iframe>
+                        {{ else }}
+                            <!-- Other HTML5 video types -->
+                            <video src="{{ video_embed | embed_url }}" ...></video>
+                        {{ /if }}
+
+                    {{ /if }}
+
+                </div>
+
+            </article>
+
+        {{ /cols }}
+
+    </div>
+
+</section>
+
