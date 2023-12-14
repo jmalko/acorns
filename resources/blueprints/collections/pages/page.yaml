@@ -58,14 +58,3 @@ tabs:
               visibility: visible
               replicator_preview: true
               hide_display: false
-  SEO:
-    display: SEO
-    sections:
-      -
-        fields:
-          -
-            handle: seo
-            field:
-              type: seo_pro
-              listable: false
-              display: SEO
